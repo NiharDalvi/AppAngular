@@ -1,0 +1,17 @@
+<div class="list">
+    <form (submit)="addItem()">
+        <input 
+        type="text"
+        name="inputItem"
+        placeholder="Enter item "
+        class="list1-input"
+        [(ngModel)]="inputItem"
+        />
+        <input type="submit" value="Add item" class="list1-submit">
+    </form>
+    <div *ngFor="let list of list1; let i = index;" class="list1 {{ (list.completed ? 'done':'') }}">
+        <div class="id">{{ i }}</div>
+        <div class="content" (click)="toggleDone(i)">{{list.content}}</div>
+        <button class="delete" (click)="deleteItem(i)">Remove</button>
+    </div>
+</div>
